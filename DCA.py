@@ -45,6 +45,7 @@ def calculate():
             return
         
         cumprod = np.trapezoid(cum, t)
+        cum_label.config(text=f"Cum.Prod.= {int(cumprod)} m³")
 
         ax.clear()
         ax.plot(t, q, marker="o", label="Production Profile", color="blue")
@@ -55,7 +56,6 @@ def calculate():
         ax.legend()
         canvas.draw()
       
-        cum_label.config(text=f"Cum.Prod.= {int(cumprod)} m³")
         for row in tree.get_children():
             tree.delete(row)
         for i in range(len(t)):
